@@ -1,20 +1,17 @@
 import java.util.*;
-
+// 2. Написать программу, которая запрашивает у пользователя набор слов, сохраняет их, а затем выводит количество уникальных слов в наборе.
+// !!! набор слов заканчивается вводом "stop" от пользователя !!!
 public class TaskTwo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<String> myList = new ArrayList<String>();
-        /*myList.add(sc.nextLine());
-        System.out.println(myList);
-        Set<String> toSet = new HashSet<>(myList);
-        System.out.println(toSet);
-        Set targetSet = Set.copyOf(myList);
-        System.out.println(targetSet);*/
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");
-        Set<String> tSet = new HashSet<>();
-        tSet.add(sc.nextLine());
-        System.out.println(tSet);
+        while (sc.hasNext()) {
+            if (sc.next().equals("stop")) {
+                break;
+            }
+            myList.add(sc.next());
+        }
+        Set<String> tSet = new TreeSet<>(myList);
+        System.out.println("количество уникальных слов в наборе: "+tSet.size());
     }
 }
-//List<Integer> sourceList = Arrays.asList(0, 1, 2, 3, 4, 5);
-//    Set<Integer> targetSet = new HashSet<>(sourceList);
